@@ -1,5 +1,23 @@
 import React from 'react';
 import {render} from 'react-dom';
+import Raven from 'raven-js';
+
+import { sentry_url, logException } from './data/config';
+
+Raven.config(sentry_url, {
+	tags: {
+		git_commit: 'lifgjhslkdjfbnskjdfhgsnof',
+		userLevel: 'editor'
+	}
+}).install();
+
+// logException(new Error('download failed!'), {
+// 	email: 'royalcj@yahoo.ca'
+// })
+
+// Raven.captureMessage('Something bad happened!')
+// Raven.showReportDialog();
+
 
 import css from './styles/style.styl';
 import App from './components/App';
