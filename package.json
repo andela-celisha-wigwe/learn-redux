@@ -61,6 +61,7 @@
     "expect": "^1.18.0",
     "expect-jsx": "^2.5.1",
     "jscover": "^1.0.0",
+    "jscoverage": "^0.6.0",
     "mocha": "^2.4.5",
     "mocha-lcov-reporter": "^1.2.0",
     "react-addons-test-utils": "^15.0.2"

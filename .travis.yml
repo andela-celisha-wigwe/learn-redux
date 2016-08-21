@@ -4,5 +4,5 @@ node_js:
   - "6.1"
   - "5.11"
 after_success:
-- NODE_ENV=production ./node_modules/.bin/jscover lib lib-cov
+- NODE_ENV=production ./node_modules/.bin/jscoverage tests lib-cov
 - NODE_ENV=production ./node_modules/.bin/mocha tests/*.spec.js --compilers js:babel-core/register -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js
