@@ -5,11 +5,12 @@
   "scripts": {
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",
-    "tests": "NODE_ENV=production mocha './tests/**/*.spec.js' --compilers js:babel-core/register",
-    "test": "NODE_ENV=production mocha './tests/*.spec.js' --compilers js:babel-core/register",
+    "test": "NODE_ENV=production mocha './test/*.spec.js' --compilers js:babel-core/register",
     "clean": "rimraf dist",
     "start": "node devServer.js",
-    "tunnel": "browser-sync start --proxy localhost:7770 --tunnel wesbos"
+    "cover": " NODE_ENV=production ./node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --colors --reporter dot test/",
+    "tunnel": "browser-sync start --proxy localhost:7770 --tunnel wesbos",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "bin": {
     "coveralls": "./bin/coveralls.js"
@@ -60,6 +61,7 @@
     "enzyme": "^2.4.1",
     "expect": "^1.18.0",
     "expect-jsx": "^2.5.1",
+    "istanbul": "^0.4.4",
     "jscover": "^1.0.0",
     "jscoverage": "^0.6.0",
     "mocha": "^2.4.5",

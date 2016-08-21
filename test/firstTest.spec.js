@@ -1,3 +1,4 @@
+//NODE_ENV=production node_modules/.bin/mocha -R mocha-lcov-reporter > coverage/coverage.lcov --compilers js:babel-core/register
 import expect from 'expect';
 import React from 'react';
 import Single from '../client/components/Single';
